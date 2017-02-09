@@ -1,0 +1,277 @@
+extends layout
+block content
+  
+  // Navigation
+  nav.navbar.navbar-default.navbar-fixed-top.bg-light-gray
+    .container
+      
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand.page-scroll(href='#page-top')
+          img.img-responsive.hide#logo(src="//s3-us-west-2.amazonaws.com/ws-app/ws-logo.png")
+      
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li.hidden
+            a(href='#page-top')
+          li
+            a.page-scroll(href='#services') #{__('Services')}
+          li
+            a.page-scroll(href='#about') #{__('About us')}
+          li
+            a.page-scroll(href='#contact') #{__('Contact')}
+      // /.navbar-collapse
+    // /.container-fluid
+  
+  // Header
+  header
+    .container.text-center
+      img.big-logo(src="//s3-us-west-2.amazonaws.com/ws-app/ws-logo.png", style="max-width: 400px; margin: 120px 0 10px 0")
+        
+      .intro-text       
+        //.intro-heading hope for the best, plan for the worst
+        .intro-lead-in hope for the best, plan for the worst
+        a.page-scroll.btn.btn-primary(href='#services') #{__('Discover more')}
+
+  // Portfolio Section/
+  section#services.bg-light-gray
+    .container(style='margin-top: 50px')
+      .row
+        .col-lg-12.text-center
+          h1.section-heading #{__('Our services')}
+          
+          //h3.section-subheading.text-muted #{__('This areas are the ones we are specialized')}
+      .row(style='margin-bottom: 120px')
+        .col-md-4.col-sm-6.portfolio-item
+          a.portfolio-link(href='#servicesModal1' data-toggle='modal')
+            .portfolio-hover
+              .portfolio-hover-content
+                i.fa.fa-plus.fa-3x
+            img.img-responsive(src='//s3-us-west-2.amazonaws.com/ws-app/1.png' alt='')
+          .portfolio-caption
+            h5 #{__('Information Security Audits')}
+            //p.text-muted #{__('Information Security Audits')}
+        .col-md-4.col-sm-6.portfolio-item
+          a.portfolio-link(href='#servicesModal2' data-toggle='modal')
+            .portfolio-hover
+              .portfolio-hover-content
+                i.fa.fa-plus.fa-3x
+            img.img-responsive(src='//s3-us-west-2.amazonaws.com/ws-app/2.png' alt='')
+          .portfolio-caption
+            h5 #{__('Managed Security Services (MSS)')}
+            //p.text-muted #{__('MSO & MSM')}
+        .col-md-4.col-sm-6.portfolio-item
+          a.portfolio-link(href='#servicesModal3' data-toggle='modal')
+            .portfolio-hover
+              .portfolio-hover-content
+                i.fa.fa-plus.fa-3x
+            img.img-responsive(src='//s3-us-west-2.amazonaws.com/ws-app/3.png' alt='')
+          .portfolio-caption
+            h5 #{__('Incident Prevention & Response')}
+            //p.text-muted #{__('Incident Prevention & Response Services')} 
+
+  // About Section
+  section#about(style='margin-top: 50px')
+    .container
+      .row(style='margin-top: 90px')
+        .col-lg-100.text-center(style='margin-bottom: 50px')
+          h2.section-heading 
+          h3.section-heading.text-muted.text-justify #{__('We are living a world where cyber threats have become commonplace. From identity theft and credit card fraud to corporate espionage, threats are getting more dangerous and sophisticated. Your data is your biggest asset and it needs to be protected for business continuity. We help you achieve that by offering expert services that are tailored to meet specific needs and requirements. Our experienced team of security experts can analyse your network for security breaches to implement the best solutions.')}
+    
+  // Clients Aside
+  section#clients
+    .container(style='margin-bottom: 20px').hidden
+        .col-md-3.col-sm-6
+          a(href='#')
+            img.img-responsive.img-centered(src='img/logos/envato.jpg' alt='')
+        .col-md-3.col-sm-6
+          a(href='#')
+            img.img-responsive.img-centered(src='img/logos/designmodo.jpg' alt='')
+        .col-md-3.col-sm-6
+          a(href='#')
+            img.img-responsive.img-centered(src='img/logos/themeforest.jpg' alt='')
+        .col-md-3.col-sm-6
+          a(href='#')
+            img.img-responsive.img-centered(src='img/logos/creative-market.jpg' alt='')
+  
+  // Introduction to services
+  section#contact.bg-light-gray
+    .container
+      .row(style='margin-top: 30px')
+        .col-lg-12.text-center(style='margin-top: 50px')
+          h3.section-subheading.text-muted #{__('If you want to know whether your enterprise information and infrastructure is secure, please contact us. We appreciate you taking the time to consider us as your IT security consultant.')}
+      .row
+        .col-lg-12
+          form#contactForm(name='sentMessage' novalidate='' action="/contact")
+            .row
+              .col-md-6
+                .form-group
+                  input#name.form-control(type='text' placeholder='Your name *' required='' data-validation-required-message=Insert your name)
+
+                  p.help-block.text-danger
+                .form-group
+                  input#email.form-control(type='email' placeholder='Your email *' required='' data-validation-required-message=Insert your email)
+                  p.help-block.text-danger
+                .form-group
+                  input#phone.form-control(type='tel' placeholder='Your phone *' required='' data-validation-required-message=Insert your phone)
+                  p.help-block.text-danger
+              .col-md-6
+                .form-group
+                  textarea#message.form-control(placeholder='The message *' required='' data-validation-required-message=Insert your message:)
+                  p.help-block.text-danger
+              .clearfix
+              .col-lg-12.text-center
+                #success
+                button.btn.btn-xl(type='submit') #{__('Send message')}  
+    section#footer
+        .container
+          .row
+            .col-md-12.text-center
+              span.copyright Copyright &copy; Wainer Security 2015-2016
+              
+            .col-md-12.hidden
+              ul.list-inline.quicklinks
+                li
+                  a(href='#') Política de privacidad
+                li
+                  a(href='#') Términos del servicio
+  // Portfolio Modals
+  // Use the modals below to showcase details about your portfolio projects!
+  // Portfolio Modal 1
+  #servicesModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-content.bg-zilla
+      .close-modal(data-dismiss='modal')
+        .lr
+          .rl
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            .modal-body
+              img.img-responsive.img-centered(src='//s3-us-west-2.amazonaws.com/ws-app/bro-1.jpg' width="56%" alt='')
+              button.btn.btn-primary(type='button' data-dismiss='modal' margin-bottom: '20px')
+                i.fa.fa-times  
+                |  #{__('Back')}
+
+  // Portfolio Modal 2
+  #servicesModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-content.bg-zilla
+      .close-modal(data-dismiss='modal')
+        .lr
+          .rl
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            .modal-body
+              img.img-responsive.img-centered(src='//s3-us-west-2.amazonaws.com/ws-app/bro-2.jpg' width="60%" alt='')
+              button.btn.btn-primary(type='button' data-dismiss='modal')
+                i.fa.fa-times
+                |  #{__('Back')}
+
+  // Portfolio Modal 3
+  #servicesModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-content.bg-zilla
+      .close-modal(data-dismiss='modal')
+        .lr
+          .rl
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            .modal-body
+              img.img-responsive.img-centered(src='//s3-us-west-2.amazonaws.com/ws-app/bro-3.jpg' width="57%" alt='')
+              button.btn.btn-primary(type='button' data-dismiss='modal')
+                i.fa.fa-times
+                |  #{__('Back')}
+
+
+  div#map(style="position:fixed; top:0; width:100%; height:100%; z-index:1;")
+  div(style="position:fixed; top:0; width:100%; height:100%; z-index:2; background: url(//storage.googleapis.com/wsapp_media/03.png)")
+  // jQuery
+  script(src='js/jquery.js')
+  // Bootstrap Core JavaScript
+  script(src='js/bootstrap.min.js')
+  // Plugin JavaScript
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+  script(src='js/classie.js')
+  script(src='js/cbpAnimatedHeader.js')
+  // Contact Form JavaScript
+  script(src='js/jqBootstrapValidation.js')
+  script(src='js/contact_me.js')
+  // Custom Theme JavaScript
+  script(src='js/agency.js')
+  
+  // Mapbox Background
+  script(src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js')
+  script.
+    // create a map in the "map" div, set the view to a given place and zoom
+    //var map = L.map('map',{scrollWheelZoom: false}).setView([-34.55610, -58.41734], 18);
+
+    // create a tile layer sourced from mapbox
+    //L.tileLayer('https://{s}.tiles.mapbox.com/v4/fernando.ho5761ak/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmVybmFuZG8iLCJhIjoib29xOGNfbyJ9.bAxNNENyPazSKDPNTC_8Vw').addTo(map);
+    f = 10;
+    i = 0;
+    max = 3;
+    min = 1;
+    x = Math.random() * (max - min) + max;
+    max = -3;
+    min = -2; 
+    y = Math.random() * (max - min) + min;
+
+    // asks location to the browser, if given, it points the map to it. 
+    //map.locate({setView: true});
+
+    // Location of IP
+    L.mapbox.accessToken = 'pk.eyJ1IjoiZmVybmFuZG8iLCJhIjoib29xOGNfbyJ9.bAxNNENyPazSKDPNTC_8Vw';
+    var map = L.mapbox.map('map', 'mapbox.streets');
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+
+    map.on('locationfound', function(e) {
+        map.fitBounds(e.bounds);
+
+        myLayer.setGeoJSON({
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [e.latlng.lng, e.latlng.lat]
+            },
+            properties: {
+                'title': 'Here I am!',
+                'marker-color': '#ff8888',
+                'marker-symbol': 'star'
+            }
+        });        
+    });  
+
+    map.locate();
+
+
+    setInterval(function(){
+      f = 10;
+      if(i==f){
+        i=0;
+
+        x = Math.random() * (max - min) + min;
+        max = 13;
+        min = 5;
+        miny = -5;
+        y = Math.random() * (max - miny) + miny;
+
+      }
+      i = i + 1;
+    
+    //console.log(x + ' - ' + y);
+    
+    map.panBy([x, y], {animate: true,noMoveStart:true, easeLinearity:0, duration: 1});}, 200);
+    
+    //setInterval(function(){
+    //  var max = 100;
+    //  var min = -50;
+    //  var x = Math.random() * (max - min) + min;
+    //  var y = Math.random() * (max - min) + min;
+    //  console.log(y + 'y');
+    //  map.panBy([x, y], {animate: true, duration: 1});}, 1500);
